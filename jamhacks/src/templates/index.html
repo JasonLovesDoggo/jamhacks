@@ -2,8 +2,8 @@
 
 {% block content %}
 <div>
-  {% if session %}
-  <h1>Welcome {{session.userinfo.name}}!</h1>
+  {% if user %}
+  <h1>Welcome {{user.userinfo.name}}!</h1>
   <p><a href="{% url 'logout' %}">Logout</a></p>
   <div><pre>{{pretty}}</pre></div>
   {% else %}
