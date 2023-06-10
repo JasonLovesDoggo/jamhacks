@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 import json
 from authlib.integrations.django_client import OAuth
 from django.conf import settings
@@ -8,7 +5,6 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from urllib.parse import quote_plus, urlencode
 
-# 👆 We're continuing from the steps above. Append this to your webappexample/views.py file.
 
 oauth = OAuth()
 
@@ -27,6 +23,7 @@ def login(request):
     return oauth.auth0.authorize_redirect(
         request, request.build_absolute_uri(reverse("callback"))
     )
+
 
 def callback(request):
     token = oauth.auth0.authorize_access_token(request)
@@ -47,6 +44,7 @@ def logout(request):
             quote_via=quote_plus,
         ),
     )
+
 
 def index(request):
     return render(
