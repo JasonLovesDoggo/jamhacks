@@ -20,7 +20,9 @@ from backend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.index, name="index"),
+    path("", views.dashboard, name="dashboard"),
+    path("start", views.start, name="start"),
+    path("start/session", views.start_session, name="start_session"),
     path("login", views.login, name="login"),
     path("logout", views.logout, name="logout"),
     path("callback", views.callback, name="callback"),
