@@ -6,6 +6,7 @@ detector = pm.poseDetector()
 armCounter = 0
 direction = 0
 form = 0
+points = 0
 feedback = "N/A"
 
 while cap.isOpened():
@@ -44,11 +45,16 @@ while cap.isOpened():
         
         #During the arm workout
         if form == 1:
-            if right_shoulder > 80 and right_shoulder < 100 and feedback == "down":
+            if right_shoulder > 75 and right_shoulder < 105 and feedback == "down":
+                if right_shoulder > 85 and right_shoulder < 95:
+                    points += 10
+                elif right_shoulder > 80 or right_shoulder < 100:
+                    points += 7
+                else:
+                    points += 5
                 armCounter += 0.5
                 feedback = "up"
             elif feedback == "up" and right_shoulder < 30:
-                print("hi")
                 armCounter += 0.5
                 feedback = "down"
         
@@ -59,7 +65,10 @@ while cap.isOpened():
         
     cv2.imshow('Arm Raise', img)
 
+    print(points)
+
     if cv2.waitKey(10) & 0xFF == ord('q'):
+        print(points)
         break
         
 cap.release()
