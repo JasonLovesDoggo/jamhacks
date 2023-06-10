@@ -10,6 +10,7 @@ def dashboard(request):
         },
     )
 
+
 def start(request):
     return render(
         request,
