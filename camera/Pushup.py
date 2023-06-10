@@ -5,6 +5,7 @@ import PoseModule as pm
 cap = cv2.VideoCapture(1)
 detector = pm.poseDetector()
 PushupCounter = 0
+count = 0
 direction = 0
 form = 0
 
