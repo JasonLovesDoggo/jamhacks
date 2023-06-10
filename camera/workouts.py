@@ -10,7 +10,6 @@ direction = 0
 form = 0
 feedback = "Fix Form"
 
-
 while cap.isOpened():
     ret, img = cap.read() #640 x 480
 
@@ -46,11 +45,21 @@ while cap.isOpened():
         #Bar to show Pushup progress
         bar = np.interp(right_elbow, (90, 160), (380, 50))
 
-        if right_shoulder < 15:
-            right_shoulder_previous = right_shoulder
-            print("starting")
-        else:
-            print("")
+        #Check for starter position
+        if right_shoulder < 30 and form != 1:
+            form = 1
+            feedback = "down"
+        
+        #During the arm workout
+        if form == 1:
+            if right_shoulder > 80 and right_shoulder < 100 and feedback == "down":
+                count += 0.5
+                feedback = "up"
+            elif feedback == "up" and right_shoulder < 30:
+                print("hi")
+                count += 0.5
+                feedback = "down"
+
 
         '''
         #Check for full range of motion for the pushup
@@ -74,8 +83,7 @@ while cap.isOpened():
                     feedback = "Fix Form"
                         # form = 0
                         '''
-        #print(count)
-
+        
         cv2.rectangle(img, (580, 50), (600, 380), (0, 255, 0), 3)
         cv2.rectangle(img, (580, int(bar)), (600, 380), (0, 255, 0), cv2.FILLED)
         cv2.putText(img, f'{int(per)}%', (565, 430), cv2.FONT_HERSHEY_PLAIN, 2,
