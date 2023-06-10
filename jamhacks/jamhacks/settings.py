@@ -17,6 +17,8 @@ from dotenv import load_dotenv, find_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, "jamhacks", "../backend/templates")
 
+AUTH_USER_MODEL = 'backend.User'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'backend',
 ]
 
 MIDDLEWARE = [
