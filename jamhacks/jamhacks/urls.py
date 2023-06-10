@@ -20,7 +20,7 @@ from backend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("accounts/", include("django.contrib.auth.urls")),
+    path("", include("django.contrib.auth.urls")),
     path("", views.dashboard, name="dashboard"),
     path("start", views.start, name="start"),
     path("start/session", views.start_session, name="start_session"),
