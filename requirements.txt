@@ -1,0 +1,3 @@
+pymongo[srv,snappy,tls,gssapi]
+dnspython
+djongo
