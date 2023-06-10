@@ -17,12 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from backend import views
+from django.shortcuts import redirect
 from backend.views import SignUpView
 
 urlpatterns = [
+    path('logout/', views.log_out, name='logout'),
+    path('admin/logout/', lambda request: redirect('/logout/', permanent=False)),
     path('admin/', admin.site.urls),
     path("", include("django.contrib.auth.urls")),
-    path("signup/", SignUpView.as_view(), name="signup"),
+    path("signup/", SignUpView.as_view, name="signup"),
     path("", views.dashboard, name="dashboard"),
     path("start", views.start, name="start"),
     path("start/session", views.start_session, name="start_session"),
