@@ -1,11 +1,10 @@
 import cv2
-import mediapipe as mp
 import numpy as np
 import PoseModule as pm
 
 cap = cv2.VideoCapture(1)
 detector = pm.poseDetector()
-count = 0
+PushupCounter = 0
 direction = 0
 form = 0
 
