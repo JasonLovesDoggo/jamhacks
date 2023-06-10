@@ -28,6 +28,7 @@ class Date(models.Model):
     def __str__(self):
         return self.date
 
+
 class User(AbstractUser):
     bio = models.CharField(max_length=100, blank=True)
     exercises = models.ManyToManyField(Exercise, blank=True)
@@ -35,3 +36,6 @@ class User(AbstractUser):
     dates_exercised = models.ManyToManyField(Date, blank=True)
     current_streak = models.IntegerField(default=0)
     longest_streak = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.username

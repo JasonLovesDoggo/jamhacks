@@ -15,7 +15,7 @@ import os
 from dotenv import load_dotenv, find_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATE_DIR = os.path.join(BASE_DIR, "jamhacks", "../backend/templates")
+TEMPLATE_DIR = os.path.join(BASE_DIR, "jamhacks", "../src/templates")
 
 AUTH_USER_MODEL = 'backend.User'
 
