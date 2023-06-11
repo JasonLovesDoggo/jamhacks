@@ -2,25 +2,25 @@
 
 {% block content %}
 <div>
-  <h1>quests</h1>
+    <h1>quests</h1>
 
-  <h2>my quests</h2>
-  <button>add quest</button>
+    <h2>my quests</h2>
+    <button>add quest</button>
 
-  <!-- all quests is user doesn't have quests -->
-  {% if user.quests.all %}
+    <!-- all quests is user doesn't have quests -->
+    {% if user.quests.all %}
 
-  {% for quest in user.quests.all %}
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{quest.name}}</h5>
-      <p class="card-text">{{quest.description}}</p>
-      <a href="/" class="stretched-link"></a>
+    {% for quest in user.quests.all %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{quest.name}}</h5>
+            <p class="card-text">{{quest.description}}</p>
+            <a href="/start/{{quest.pk}}" class="stretched-link"></a>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div>you have no quests</div>
+        {% endif %}
+
     </div>
-  {% endfor %}
-    {% else %}
-    <div>you have no quests</div>
-    {% endif %}
-
-</div>
-{% endblock %}
+    {% endblock %}

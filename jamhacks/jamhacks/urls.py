@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 from backend import views
 from django.shortcuts import redirect
-
 urlpatterns = [
     path('logout/', views.log_out, name='logout'),
     path('admin/logout/', lambda request: redirect('/logout/', permanent=False)),
@@ -27,6 +26,7 @@ urlpatterns = [
     path("signup/", views.SignUpView.as_view(), name="signup"),
     path("", views.dashboard, name="dashboard"),
     path('quests', views.quests, name='quests'),
-    path("start", views.start, name="start"),
+    path("start/<str:quest>", views.start, name="start"),
     path("start_session", views.start_session, name="start_session"),
     ]
+

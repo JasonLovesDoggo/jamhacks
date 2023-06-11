@@ -25,12 +25,12 @@ def quests(request):
     )
 
 
-def start(request):
+def start(request, quest):
     return render(
         request,
         "start.html",
         context={
-            "quest": Quest.objects.get(name="Legs"),
+            "quest": Quest.objects.get(pk=quest),
         },
     )
 
