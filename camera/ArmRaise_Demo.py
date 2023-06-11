@@ -55,7 +55,7 @@ while cap.isOpened() and not stop_button_pressed:
         
         #During the arm workout
         if form == 1:
-            if right_shoulder > 75 and right_shoulder < 105 and feedback == "down":
+            if right_shoulder > 75 and left_shoulder > 75 and right_shoulder < 105 and left_shoulder < 105 and feedback == "down":
                 if right_shoulder > 85 and right_shoulder < 95:
                     points += 10
                 elif right_shoulder > 80 or right_shoulder < 100:
@@ -64,7 +64,7 @@ while cap.isOpened() and not stop_button_pressed:
                     points += 5
                 armCounter += 0.5
                 feedback = "up"
-            elif feedback == "up" and right_shoulder < 30:
+            elif feedback == "up" and right_shoulder < 30 and left_shoulder < 30:
                 armCounter += 0.5
                 feedback = "down"
         
