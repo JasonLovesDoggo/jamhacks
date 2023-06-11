@@ -16,6 +16,15 @@ def dashboard(request):
     )
 
 
+def quests(request):
+    return render(
+        request,
+        "quests.html",
+        context={
+        },
+    )
+
+
 def start(request):
     return render(
         request,
