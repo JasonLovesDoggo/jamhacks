@@ -25,6 +25,15 @@ def quests(request):
     )
 
 
+def socials(request):
+    return render(
+        request,
+        "socials.html",
+        context={
+            'users': CoreUser.objects.all(),
+        },
+    )
+
 def start(request, quest):
     return render(
         request,
@@ -40,7 +49,7 @@ def start_session(request, quest):
         request,
         "start_session.html",
         context={
-            "quest": "push-ups",  # TODO: get quest from request
+            "quest": quest,
         },
     )
 
