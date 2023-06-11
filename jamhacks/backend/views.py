@@ -96,7 +96,7 @@ class SignUpView(generic.CreateView):
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
 
-
+from django.shortcuts import redirect
 def log_out(request):
     logout(request)
     return render(
