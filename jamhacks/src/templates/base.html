@@ -42,14 +42,6 @@
         <p class="title">PhysioQuest</p>
         <p class="subtitle">fulfill the goal of healing yourself</p>
       </div>
-      <nav class="navbar fixed-bottom bg-body-tertiary">
-        <div class="container-fluid" style="width: 55%">
-          <a class="nav-item" href="/"><i class="fa-solid fa-house"></i></a>
-          <a class="nav-item" href="/socials"><i class="fa-solid fa-users"></i></a>
-          <a class="nav-item" href="/quests"><i class="fa-solid fa-dumbbell"></i></a>
-          <a class="nav-item" href="/profile"><i class="fa-solid fa-circle-user"></i></a>
-        </div>
-      </nav>
     </header>
     <div class="container body-content" style="margin-top: 5%; margin-bottom: 20%;">
       {% bootstrap_messages %}
@@ -57,6 +49,16 @@
       {% block content %}{% endblock %}
     </div>
   </div>
+  <footer>
+    <nav class="navbar fixed-bottom bg-body-tertiary">
+      <div class="container-fluid" style="width: 55%">
+        <a class="nav-item" href="/"><i class="fa-solid fa-house"></i></a>
+        <a class="nav-item" href="/socials"><i class="fa-solid fa-users"></i></a>
+        <a class="nav-item" href="/quests"><i class="fa-solid fa-dumbbell"></i></a>
+        <a class="nav-item" href="/profile"><i class="fa-solid fa-circle-user"></i></a>
+      </div>
+    </nav>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
