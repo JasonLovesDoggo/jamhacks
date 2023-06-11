@@ -39,18 +39,16 @@
 </head>
 
 <body>
-  <div>
-    <header>
-      <div class="header">
-        <p class="title">PhysioQuest</p>
-        <p class="subtitle">fulfill the goal of healing yourself</p>
-      </div>
-    </header>
-    <div class="container body-content" style="margin-top: 5%; margin-bottom: 20%; ">
-      {% bootstrap_messages %}
-
-      {% block content %}{% endblock %}
+  <header>
+    <div class="header">
+      <p class="title">PhysioQuest</p>
+      <p class="subtitle">fulfill the goal of healing yourself</p>
     </div>
+  </header>
+  <div class="container body-content" style="margin-top: 5%; padding-bottom: 4rem;">
+    {% bootstrap_messages %}
+
+    {% block content %}{% endblock %}
   </div>
   <footer>
     <nav class="navbar fixed-bottom bg-body-tertiary">
