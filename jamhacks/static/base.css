@@ -1,0 +1,276 @@
+:root {
+    --size: 1.4rem;
+    --bg: #D93B3B;
+    --fg: #eeeeee;
+    --link: hsl(220deg 100% 90%);
+    --linkv: hsl(260deg 100% 90%);
+    --accent: #FFAAAA;
+    --cd-bg: #8A3131;
+    --cd-txt: #DCC1C1;
+    /* #fc5656 */
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-size: var(--size);
+    color: var(--fg);
+    background: var(--bg);
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main,
+header {
+    margin: 8px;
+    font-weight: 700;
+}
+
+h1 {
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+ul {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+main {
+    text-align: center;
+}
+
+body>nav {
+    padding: 4px;
+}
+
+#countdown-header {
+    text-align: center;
+    width: calc(100vw - 2 * 1rem);
+    padding: 1rem;
+    color: var(--cd-txt);
+    background: var(--cd-bg);
+}
+
+#countdown.soon-very1 {
+    color: #ac8300;
+}
+
+#countdown.soon-very2 {
+    color: #d56500;
+}
+
+#countdown.soon-very3 {
+    color: #f23749;
+}
+
+.spacer {
+    float: right;
+}
+
+.fakea {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    font-family: 'Work Sans', sans-serif;
+    font-size: var(--size);
+    color: var(--link);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a {
+    color: var(--link);
+}
+
+a:visited {
+    color: var(--linkv);
+}
+
+.messages,
+.nodot {
+    list-style: none;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.imgicon {
+    height: 3rem;
+}
+
+.qrcode {
+    padding: 1rem;
+}
+
+.qrcode>img {
+    margin: auto;
+}
+
+.button2 {
+    color: white;
+}
+
+.button {
+    background: var(--fg);
+    transition: 0.3s;
+    border: 0;
+    border-radius: 0.5rem;
+    max-width: 35rem;
+    padding: 0.8rem;
+    font-size: var(--size);
+    font-family: inherit;
+    font-weight: inherit;
+    color: #943131 !important;
+    /* TODO: match design font weight */
+    text-decoration: none;
+}
+
+.button:hover {
+    background: hsl(0deg 100% 90%);
+    ;
+}
+
+.button:active {
+    background: hsl(0deg 100% 75%);
+    ;
+}
+
+#main-header {
+    position: fixed;
+    bottom: 0;
+    background: var(--accent);
+}
+
+.main-header {
+    width: calc(100vw - 2 * 1rem);
+    padding: 1rem;
+    color: #111;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+#main-header i {
+    padding: 0.2rem;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+/*#main-header a:not(.noicon) {*/
+/* TODO: was :contains() supported? */
+/*
+    text-decoration: none;
+  } */
+
+#main-header a.noicon {
+    color: var(--cd-bg);
+    ;
+    text-decoration: none;
+    background: white;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.3rem;
+    font-weight: 500;
+}
+
+#main-header a.noicon:hover {
+    background: rgba(255, 255, 255, 0.85)
+}
+
+#main-header a.noicon:active {
+    background: rgba(255, 255, 255, 0.75)
+}
+
+
+.identity {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5rem;
+}
+
+.identity>.team-name {
+    font-weight: 700;
+}
+
+.identity>.username {
+    font-weight: 400;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+form * {
+    margin: 5px;
+    padding: 5px;
+}
+
+input {
+    background: var(--fg);
+    border: 3px solid #fff;
+    color: var(--cd-bg);
+    font: inherit;
+    margin-right: 0;
+    border-radius: 0.3rem 0 0 0.3rem;
+    padding: 0.4rem 0.7rem;
+}
+
+input[type=submit] {
+    background: var(--bg);
+    color: white;
+    font: inherit;
+    margin-left: 0;
+    border-radius: 0 0.3rem 0.3rem 0;
+}
+
+input[type=submit]:hover {
+    background: rgba(255, 255, 255, 0.10)
+}
+
+input[type=submit]:active {
+    background: rgba(255, 255, 255, 0.20)
+}
+
+input:placeholder {
+    color: #ccc;
+}
+
+.icon-alt {
+    /* from https://webaim.org/techniques/css/invisiblecontent/ */
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+.deco27 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
