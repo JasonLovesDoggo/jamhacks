@@ -3,15 +3,26 @@
 {% block content %}
 <div>
   <h1>{{quest}}</h1>
-  {% for exercise in quest.exercises.all %}
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{exercise.name}}</h5>
-      <p class="card-text">{{exercise.description}}</p>
-    </div>
-  {% endfor %}
+  <div class="row gx-5">
 
-  <a href="/start_session/{{quest.pk}}" class="stretched-link">Start</a>
+      {% for exercise in quest.exercises.all %}
+      <div class="col-md-4 col-sm-2 event-card card">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                      <a href="#" class="card-title stretched-link" style="text-decoration: none; color:#523911">
+                          <h5><b>{{ exercise.name }}</b></h5>
+                      </a>
+                      <p class="card-text" style="margin-bottom: 0.3rem;">{{exercise.description}}</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+/* align button */
+
+  <button onclick="location.href = '/start_session/{{quest.pk}}' " class="btn" style="text-align: center;">Start</button>
 
 </div>
 {% endblock %}
