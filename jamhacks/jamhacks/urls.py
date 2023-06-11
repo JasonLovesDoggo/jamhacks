@@ -19,6 +19,7 @@ from django.urls import path, include
 from backend import views
 from django.shortcuts import redirect
 urlpatterns = [
+    path('', include('pwa.urls')),  # You MUST use an empty string as the URL prefix
     path('logout/', views.log_out, name='logout'),
     path('admin/logout/', lambda request: redirect('/logout/', permanent=False)),
     path('admin/', admin.site.urls),
