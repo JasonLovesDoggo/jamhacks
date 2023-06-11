@@ -1,6 +1,22 @@
 # PhysioQuest
-> Gamifiyng physiotherapy to encourage to encourage consistency and accuracy 
+> Gamifiyng physiotherapy to encourage consistency and accuracy 
 
+## How to run
+#### Website
+1. Install python
+2. clone the repo using `git clone `https://github.com/JasonLovesDoggo/jamhacks.git` and `cd` into the directory 
+3. run `pip install -r requirements.txt`
+4. run `cd jamhacks`
+5. run the following 
+  - `python ./manage.py migrate --run-syncdb`
+  - `python ./manage.py loaddata fixtures/users.json`
+  - `python ./manage.py loaddata fixtures/exercises.json`
+  - `python ./manage.py loaddata fixtures/quests.json`
+ 6. start the server using `python ./manage.py runserver`
+
+#### AI model (openCV)
+1. Change the directory to `jamhacks\camera`
+2. Enter the command `python -m streamlit run ArmRaise_Webcam.py`
 
 
 ## Inspiration
