@@ -140,10 +140,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 
 
-PWA_APP_NAME = 'My App'
-PWA_APP_DESCRIPTION = "My app description"
-PWA_APP_THEME_COLOR = '#0A0302'
-PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_NAME = 'Physioquest'
+PWA_APP_DESCRIPTION = "fulfill the goal of healing yourself"
+PWA_APP_THEME_COLOR = '#FACA86'
+PWA_APP_BACKGROUND_COLOR = '#B8D08F'
 PWA_APP_DISPLAY = 'standalone'
 PWA_APP_SCOPE = '/'
 PWA_APP_ORIENTATION = 'any'
