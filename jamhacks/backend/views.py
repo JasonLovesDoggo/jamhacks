@@ -69,6 +69,17 @@ def profile(request):
     )
 
 
+# display results
+def results(request):
+    return render(
+        request,
+        "results.html",
+        context={
+            
+        },
+    )
+
+
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
