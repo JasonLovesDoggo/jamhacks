@@ -21,3 +21,10 @@ def mod(value, arg):
         return None
 
 
+@register.filter(name='sub')
+def sub(value, arg):
+    try:
+        return int(value) - int(arg)
+    except (ValueError, ZeroDivisionError):
+        return None
+
