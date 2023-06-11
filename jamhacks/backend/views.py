@@ -40,7 +40,7 @@ def start_session(request, quest):
         request,
         "start_session.html",
         context={
-            "quest": "push-ups",  # TODO: get quest from request
+            "quest": quest,
         },
     )
 

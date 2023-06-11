@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 
+<!-- pushups and lateral raises should be pk=1,2 -->
+
 {% block content %}
 <div>
-    start session
+  <h1>start session</h1>
+  {% if quest == 1 %}
+  <img src="../static/assets/pushup.gif" alt="" style='width: 500px;'>
+  {% elif quest == 2 %}
+  <img src="../static/assets/lateral-raise.gif" alt="" style='width: 500px;'>
+  {% else %}
+  <h1>Sorry we don't have this exericse implemented yet</h1>
+  {% endif %}
+
   {{ quests }}
 </div>
 {% endblock %}
