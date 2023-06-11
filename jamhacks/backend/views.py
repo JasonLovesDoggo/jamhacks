@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import logout
 
-from .models import CoreUser, Quest
+from .models import CoreUser, Quest, Badge
 
 
 # Create your views here.
@@ -41,6 +41,17 @@ def start_session(request, quest):
         "start_session.html",
         context={
             "quest": "push-ups",  # TODO: get quest from request
+        },
+    )
+
+
+# display profile
+def profile(request):
+    return render(
+        request,
+        "profile.html",
+        context={
+            
         },
     )
 

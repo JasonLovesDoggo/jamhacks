@@ -15,6 +15,9 @@
         <div class="card-body">
             <h5 class="card-title">{{quest.name}}</h5>
             <p class="card-text">{{quest.description}}</p>
+            {% for exercise in quest.exercises.all %}
+            <p>{{exercise.name}}</p>
+            {% endfor %}
             <a href="/start/{{quest.pk}}" class="stretched-link"></a>
         </div>
         {% endfor %}

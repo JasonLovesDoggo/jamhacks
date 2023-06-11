@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractUser
 class Badge(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=100)
-    color = ColorField(default='#FF0000')
+    icon = models.ImageField(upload_to='static/badge_images/')
 
     def __str__(self):
         return self.name

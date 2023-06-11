@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load extra_filters %}
+
+{% block content %}
+<div>
+  {% if user.is_authenticated %}
+  <h1>Welcome {{user.username}}!</h1>
+  <p>Thanks for logging in.</p>
+
+  <!-- user's badge -->
+  {{user}}
+
+  {% for badge in user.badges.all %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">{{badge.name}}</h5>
+        <p class="card-text">{{badge.description}}</p>
+        <img style="height:100px;width:100px;" src="../{{badge.icon}}" alt="{{badge.name}}">
+    </div>
+  {% endfor %}
+
+  
+
+  {% else %}
+  <div>Cool site, but you are not logged in. </div>
+  <p><a href="{% url 'login' %}">Login here</a></p>
+  {% endif %}
+</div>
+{% endblock %}
