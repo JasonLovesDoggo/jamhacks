@@ -1,3 +1,7 @@
+:root{
+    --brown: #5E4221;
+}
+
 @font-face {
     font-family: "Simply Serif";
     src: url('fonts/SimplySerif-Book.ttf');
@@ -252,7 +256,7 @@ a:hover{
   
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
   }
   
   i {
@@ -261,7 +265,7 @@ a:hover{
   }
 
   .title {
-    color: #677353;
+    color: var(--brown);
     font-size: 36px;
     font-weight: bold;
     text-align: center;
@@ -271,10 +275,32 @@ a:hover{
   }
 
   .subtitle{
-    color: #77924a;
+    color: var(--brown);
     font-size:20px;
     font-style: italic;
     text-align: center;
     align-items: center;
     padding-bottom: 25px;
+  }
+
+  .screen-title{
+    color: #77924a;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    padding-top: 25px;
+    margin-bottom: 0.2rem;
+  }
+
+  .screen-subtitle{
+    color: #77924a;
+    font-size: 32px;
+    align-items: center;
+    padding-bottom: 25px;
+  }
+
+  .screen-btn{
+    border: #5E4221 solid 0.1rem;
+    align-items: right;
   }

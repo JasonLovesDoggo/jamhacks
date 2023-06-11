@@ -2,10 +2,11 @@
 
 {% block content %}
 <div>
-    <h1>quests</h1>
-
-    <h2>my quests</h2>
-    <button>add quest</button>
+    <h1 class="screen-title">quests</h1>
+    <hr>
+    <h2 class="screen-subtitle" style="display: inline">my quests</h2>
+    
+    <button class="btn screen-btn">add quest</button>
 
     <!-- all quests is user doesn't have quests -->
     {% if user.quests.all %}
