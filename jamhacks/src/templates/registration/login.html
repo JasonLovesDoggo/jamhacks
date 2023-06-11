@@ -9,16 +9,16 @@ Login
 {% block content %}
   <div class="row" style="margin-bottom: 3%;">
     <h1 style="text-align: center; margin-bottom: 0%;">login</h1>
-    <p style="text-align: center;">Read to dive back in?</p>
   </div>
   <div class="container mx-auto" style="max-width:500px;">
     <form class="form-horizontal" method="post">{% csrf_token %}
       <fieldset>
         <legend>{{ title }}</legend>
+        <hr>
         {% for field in form %}
         {% if field.errors %}
         <div class="form-group" style="margin-top:1%">
-          <label class="control-label">{{ field.label }}</label>
+          <label class="control-label"><b>{{ field.label }}</b></label>
           {{field|addcss:"form-control reg-form-field"}}
           <div class="controls">
             <span class="help-inline">
@@ -28,7 +28,7 @@ Login
         </div>
         {% else %}
         <div class="form-group" style="margin-top:1%">
-          <label class="control-label">{{ field.label }}</label>
+          <label class="control-label"><b>{{ field.label }}</b></label>
           {{field|addcss:"form-control reg-form-field"}}
           <div class="controls">
             {% if field.help_text %}
@@ -43,7 +43,7 @@ Login
 
       <div class="row text-center">
         <button type="submit" class="btn-block btn btn-primary" name="Create User"
-          style="background:#B8D08F;border-color: #85A451; border-radius:3rem; margin-top:5%">login</button>
+          style="background:#B8D08F;border-color: #85A451; border-radius:3rem; margin-top:5%;color:#5E4221;"><b>login</b></button>
       </div>
       <p class="text-center" style="margin-top:2%">don't have an account? <a class="colored-link"
           style="text-decoration: none;" href="/signup">make one here</a>. </p>
