@@ -1,6 +1,7 @@
 import cv2
 import PoseModule as pm
 import streamlit as st
+from fastapi import FastAPI
 
 cap = cv2.VideoCapture(1)
 detector = pm.poseDetector()
@@ -10,6 +11,8 @@ direction = 0
 form = 0
 points = 0
 feedback = "N/A"
+
+app = FastAPI()
 
 frame_placeholder = st.empty()
 stop_button_pressed = st.button("Stop")
@@ -79,8 +82,12 @@ while cap.isOpened() and not stop_button_pressed:
         st.write(counter_display)
 
     if cv2.waitKey(10) & 0xFF == ord('q') or stop_button_pressed:
-        print(points)
         break
+
         
 cap.release()
 cv2.destroyAllWindows()
+
+@app.get("/points")
+async def points():
+    return {"points": points}
