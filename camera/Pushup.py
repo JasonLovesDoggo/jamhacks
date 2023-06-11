@@ -11,7 +11,8 @@ form = 0
 
 while cap.isOpened():
     ret, img = cap.read() #640 x 480
-
+    if img is None:
+        continue
     scale_percent = 180 # percent of original size
     width = int(img.shape[1] * scale_percent / 100)
     height = int(img.shape[0] * scale_percent / 100)
