@@ -22,7 +22,7 @@ AUTH_USER_MODEL = 'backend.CoreUser'
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_esi73h6_yej76asd*g^1bokr0f_dh)98#qkd_#-hs9$_44lod'
+SECRET_KEY = 'django-debug-key-this-isnt-the-real-one-for-jamhacks7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
