@@ -2,7 +2,16 @@
 
 {% block content %}
 <div>
-    start
-  {{ quests }}
+  <h1>{{quest}}</h1>
+  {% for exercise in quest.exercises.all %}
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{exercise.name}}</h5>
+      <p class="card-text">{{exercise.description}}</p>
+    </div>
+  {% endfor %}
+
+  <button>start</button>
+
 </div>
 {% endblock %}
