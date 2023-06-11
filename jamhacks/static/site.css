@@ -1,8 +1,35 @@
+@font-face {
+    font-family: "Simply Serif";
+    src: url('fonts/SimplySerif-Book.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Simply Serif";
+    src: url('fonts/SimplySerif-BookItalic.ttf');
+    font-style: italic;
+}
+
+    
+@font-face {
+    font-family: "Simply Serif";
+    src: url('fonts/SimplySerif-Bold.ttf');
+    font-style: normal;
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Simply Serif";
+    src: url('fonts/SimplySerif-BoldItalic.ttf');
+    font-style: italic;
+    font-weight: bold;
+}
+
+
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    font-family: 'Chivo', sans-serif !important;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    font-family: 'Simply Serif', serif;
     color: #523911 !important;
     /*background-image: url('https://media.discordapp.net/attachments/759867023885860934/1031193256433831997/unknown.png');*/
     background-repeat: no-repeat;
