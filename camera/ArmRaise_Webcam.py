@@ -16,6 +16,8 @@ stop_button_pressed = st.button("Stop")
 
 while cap.isOpened() and not stop_button_pressed:
     ret, img = cap.read() #640 x 480
+    if img is None:
+        continue
 
     scale_percent = 180 # percent of original size
     width = int(img.shape[1] * scale_percent / 100)
