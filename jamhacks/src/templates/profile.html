@@ -30,7 +30,13 @@
     {% endfor %}
   </div>
 
-  <img src="../../static/assets/calendar.png" alt="" style="width: 50%;">
+  {% if user.is_superuser %}
+  <p>current streak: {{user.current_streak}} days 🔥</p>
+  <img src="../../static/assets/calendar-streak.png" alt="" style="width: 500px;">
+  {% else %}
+  <p>current streak: {{user.current_streak}} days ❄️</p>
+  <img src="../../static/assets/calendar-no-streak.png" alt="" style="width: 500px;">
+  {% endif %}
 
   {% else %}
   <div>Cool site, but you are not logged in. </div>
