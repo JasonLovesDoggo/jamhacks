@@ -4,18 +4,18 @@
 
 {% block content %}
 <div>
-  <h1>start session</h1>
-  {{ exercise }}
-
+  <h1>start session - {{ exercise }} </h1>
   {% if exercise.pk == 1 %}
   <img src="../static/assets/pushup.gif" alt="" style='width: 500px;'>
   {% elif exercise.pk == 2 %}
   <img src="../static/assets/lateral-raise.gif" alt="" style='width: 500px;'>
   {% else %}
-  <h1>Sorry we don't have this exercise implemented yet</h1>
+  <h4>Sorry we don't have this exercise implemented yet</h4>
+  <div style='display: flex; justify-content: center; align-items: center;'>
+    <img src="/static/assets/exercise.png" alt="" style="height: 800px;">
+  </div>  
   {% endif %}
 
-  {{ exercise }}
   <a href='/results'>Finished</a>
 </div>
 {% endblock %}
