@@ -41,9 +41,10 @@ class Date(models.Model):
 
 class CoreUser(AbstractUser):
     bio = models.CharField(max_length=100, blank=True)
-    exercises = models.ManyToManyField(Exercise, blank=True)
+    quests = models.ManyToManyField(Quest, blank=True)
     badges = models.ManyToManyField(Badge, blank=True)
     dates_exercised = models.ManyToManyField(Date, blank=True)
+    points = models.IntegerField(default=0)
     current_streak = models.IntegerField(default=0)
     longest_streak = models.IntegerField(default=0)
 
