@@ -1,9 +1,30 @@
 {% extends 'base.html' %}
+{% load extra_filters %}
 
 {% block content %}
 <div>
   {% if user.is_authenticated %}
   <h1>Welcome {{user.username}}!</h1>
+  <p>Thanks for logging in.</p>
+
+  You have {{user.points}} points!
+  {{ 100|sub:user.points|mod:100 }} points until next badge!
+
+  <!-- user's quests -->
+  {{user.quests.all}}
+  <!-- all quests is user doesn't have quests -->
+  {% for quest in quests %}
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{quest.name}}</h5>
+      <p class="card-text">{{quest.description}}</p>
+    </div>
+  {% endfor %}
+
+    Your current streak is {{user.current_streak}} days!
+    Your longest streak is {{user.longest_streak}} days!
+
+
   <p><a href="{% url 'logout' %}">Logout</a></p>
   <div><pre>{{pretty}}</pre></div>
   {% else %}

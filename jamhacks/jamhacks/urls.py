@@ -26,5 +26,7 @@ urlpatterns = [
     path("", include("django.contrib.auth.urls")),
     path("signup/", views.SignUpView.as_view(), name="signup"),
     path("", views.dashboard, name="dashboard"),
+    path('quests', views.quests, name='quests'),
     path("start", views.start, name="start"),
+    path("start_session", views.start_session, name="start_session"),
     ]
