@@ -30,7 +30,7 @@ def start(request):
         request,
         "start.html",
         context={
-            "quests": request.session.get("user.exercises"),
+            "quest": Quest.objects.get(name="Legs"),
         },
     )
 
