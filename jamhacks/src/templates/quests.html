@@ -5,26 +5,40 @@
     <h1 class="screen-title">quests</h1>
     <hr>
     <h2 class="screen-subtitle" style="display: inline">my quests</h2>
-    
-    <button class="btn screen-btn">add quest</button>
 
+    <button class="btn screen-btn">add quest</button>
+    <br>
     <!-- all quests is user doesn't have quests -->
     {% if user.quests.all %}
+    <div class="row gx-5">
 
-    {% for quest in user.quests.all %}
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{quest.name}}</h5>
-            <p class="card-text">{{quest.description}}</p>
-            {% for exercise in quest.exercises.all %}
-            <p>{{exercise.name}}</p>
-            {% endfor %}
-            <a href="/start/{{quest.pk}}" class="stretched-link"></a>
+        {% for quest in user.quests.all %}
+        <div class="col-md-4 col-sm-2 event-card card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="card-title stretched-link" style="text-decoration: none; color:#523911">
+                            <h5><b>{{ quest.name }}</b></h5>
+                        </a>
+                        {% for exercise in quest.exercises.all %}
+                        <p class="card-text" style="margin-bottom: 0.3rem;">{{exercise.name}}</p>
+                        {% endfor %}
+                        <a href="/start/{{quest.pk}}" class="stretched-link"></a>
+                        <br>
+                    </div>
+                    <div class="col points-blob text-center vertical-center-smol" style="max-width: 5rem;">
+                        <div class="">
+                            <p class="points-num align-middle" style=" margin-bottom: 0">30</p>
+                            <p class="">points</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        {% endfor %}
-        {% else %}
-        <div>you have no quests</div>
-        {% endif %}
 
+        {% endfor %}
+        {% endif %}
     </div>
+
     {% endblock %}

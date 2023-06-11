@@ -303,4 +303,7 @@ a:hover{
   .screen-btn{
     border: #5E4221 solid 0.1rem;
     align-items: right;
+    text-align: right;
+    float: right;
+
   }

@@ -13,20 +13,39 @@
   <!-- user's quests -->
   {{user.quests.all}}
   <!-- all quests is user doesn't have quests -->
+  <div class="row gx-5">
+
   {% for quest in quests %}
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{quest.name}}</h5>
-      <p class="card-text">{{quest.description}}</p>
-    </div>
+  <div class="col-md-4 col-sm-2 event-card card">
+      <div class="card-body">
+          <div class="row">
+              <div class="col">
+                  <a href="#" class="card-title stretched-link" style="text-decoration: none; color:#523911"><h5>{{ quest.name }}</h5></a>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ event.organizer }}</h6>
+                  {% for exercise in quest.exercises.all %}
+                  <p class="card-text">{{exercise.name}}</p>
+                  {% endfor %}
+                  <a href="/start/{{quest.pk}}" class="stretched-link"></a>
+                  <br>
+              </div>
+              <div class="col points-blob text-center vertical-center-smol" style="max-width: 5rem;">
+                  <div class="">
+                  <p class="points-num align-middle" style=" margin-bottom: 0">30</p>
+                  <p class="">points</p>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+
   {% endfor %}
+</div>
 
     Your current streak is {{user.current_streak}} days!
     Your longest streak is {{user.longest_streak}} days!
 
 
-  <p><a href="{% url 'logout' %}">Logout</a></p>
-  <div><pre>{{pretty}}</pre></div>
   {% else %}
   <div>Cool site, but you are not logged in. </div>
   <p><a href="{% url 'login' %}">Login here</a></p>
