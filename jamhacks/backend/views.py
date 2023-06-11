@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import logout
 
 from .models import CoreUser, Quest, Badge
+import json
 
 
 # Create your views here.
@@ -44,12 +45,15 @@ def start(request, quest):
     )
 
 
+
 def start_session(request, quest):
+    # request.session['exercise'] = json.dumps(Quest.objects.get(pk=quest).exercises.first())
+    # print(request.session['exercise'])
     return render(
         request,
         "start_session.html",
         context={
-            "quest": quest,
+            'exercise': Quest.objects.get(pk=quest).exercises.first(),
         },
     )
 

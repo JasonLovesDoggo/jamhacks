@@ -4,13 +4,12 @@
 <div>
   <h1>{{quest}}</h1>
   <div class="row gx-5">
-
       {% for exercise in quest.exercises.all %}
       <div class="col-md-4 col-sm-2 event-card card">
           <div class="card-body">
               <div class="row">
                   <div class="col">
-                      <a href="#" class="card-title stretched-link" style="text-decoration: none; color:#523911">
+                      <a class="card-title stretched-link" style="text-decoration: none; color:#523911">
                           <h5><b>{{ exercise.name }}</b></h5>
                       </a>
                       <p class="card-text" style="margin-bottom: 0.3rem;">{{exercise.description}}</p>
