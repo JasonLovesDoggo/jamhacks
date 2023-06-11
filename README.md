@@ -7,7 +7,7 @@
 2. clone the repo using `git clone https://github.com/JasonLovesDoggo/jamhacks.git` and `cd` into the directory 
 3. run `pip install -r requirements.txt`
 4. run `cd jamhacks`
-5. run the following 
+5. run the following:
   - `python ./manage.py migrate --run-syncdb`
   - `python ./manage.py loaddata fixtures/users.json`
   - `python ./manage.py loaddata fixtures/exercises.json`
@@ -25,7 +25,7 @@ This project came about because of our group's personal experience with how diff
 ### What it does
 Physioquest turns the mundane physiotherapist-assigned exercises into a game, encouraging you to complete your exercises every day by creating streaks and providing points for accuracy. It also contains other features such as a ranking system, badges, an admin interface for physiotherapists to assign exercises to their clients, and much, much more.
 
-The OpenCV Camera Demo can be found [here](https://youtu.be/K0PG3x9Bbh4).
+The OpenCV Camera Demo can be found [here](https://youtu.be/NOkYCcEwWpY).
 
 ### How we built it
 Physioquest utilizes the Mediapipe Pose Landmarks library to detect and track human poses from a live camera feed. It then measures the angle of each shoulder to ensure the user is correctly completing the given quest and rewards them based on accuracy.
