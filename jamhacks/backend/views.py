@@ -35,7 +35,7 @@ def start(request, quest):
     )
 
 
-def start_session(request):
+def start_session(request, quest):
     return render(
         request,
         "start_session.html",
