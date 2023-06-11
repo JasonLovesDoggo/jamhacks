@@ -7,7 +7,7 @@
   <p>Thanks for logging in.</p>
 
   You have {{user.points}} points!
-  {% user.points % 100 %} points until next badge!
+  {% 100|sub:user.points|mod:100 %} points until next badge!
 
   <!-- user's quests -->
   {{user.quests.all}}
