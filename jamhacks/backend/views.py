@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import logout
 
-from .models import CoreUser
+from .models import CoreUser, Quest
 
 
 # Create your views here.
@@ -11,6 +11,7 @@ def dashboard(request):
         request,
         "dashboard.html",
         context={
+            "quests": Quest.objects.all(),
         },
     )
 
