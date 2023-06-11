@@ -1,15 +1,20 @@
 import cv2
-import numpy as np
 import PoseModule as pm
+import streamlit as st
 
 cap = cv2.VideoCapture(1)
 detector = pm.poseDetector()
-PushupCounter = 0
-count = 0
+armCounter = 0
+counter_display = 0
 direction = 0
 form = 0
+points = 0
+feedback = "N/A"
 
-while cap.isOpened():
+frame_placeholder = st.empty()
+stop_button_pressed = st.button("Stop")
+
+while cap.isOpened() and not stop_button_pressed:
     ret, img = cap.read() #640 x 480
     if img is None:
         continue
@@ -27,6 +32,10 @@ while cap.isOpened():
     height = cap.get(4)  # float `height`
     # print(width, height)
     
+    if not ret:
+        st.write("Video Capture has ended")
+        break
+
     img = detector.findPose(img, False)
     lmList = detector.findPosition(img, False)
     # print(lmList)
@@ -39,41 +48,39 @@ while cap.isOpened():
         right_shoulder = detector.findAngle(img, 14, 12, 24)
         right_hip = detector.findAngle(img, 12, 24, 26)
 
-        #Percentage of success of pushup
-        per = np.interp(right_elbow, (90, 160), (0, 100))
-
         #Check for starter position
-        if right_elbow > 160 and right_shoulder > 40 and right_hip > 160:
+        if right_shoulder < 30 and form != 1:
             form = 1
-
-        #Check for full range of motion for the pushup
-        if form == 1:
-            if per == 0:
-                if right_elbow <= 90 and right_hip > 160:
-                    feedback = "Up"
-                    if direction == 0:
-                        count += 0.5
-                        direction = 1
-                else:
-                    feedback = "Fix Form"
-                    
-            if per == 100:
-                if right_elbow > 160 and right_shoulder > 40 and right_hip > 160:
-                    feedback = "Down"
-                    if direction == 1:
-                        count += 0.5
-                        direction = 0
-                else:
-                    feedback = "Fix Form"
-                        # form = 0
+            feedback = "down"
         
-        #Pushup raise counter counter
+        #During the arm workout
+        if form == 1:
+            if right_shoulder > 75 and right_shoulder < 105 and feedback == "down":
+                if right_shoulder > 85 and right_shoulder < 95:
+                    points += 10
+                elif right_shoulder > 80 or right_shoulder < 100:
+                    points += 7
+                else:
+                    points += 5
+                armCounter += 0.5
+                feedback = "up"
+            elif feedback == "up" and right_shoulder < 30:
+                armCounter += 0.5
+                feedback = "down"
+        
+        #Lateral arm raise counter counter
         cv2.rectangle(img, (0, 0), (100, 100), (0, 255, 0), cv2.FILLED)
-        cv2.putText(img, str(int(count)), (25, 75), cv2.FONT_HERSHEY_PLAIN, 5,
+        cv2.putText(img, str(int(armCounter)), (25, 75), cv2.FONT_HERSHEY_PLAIN, 5,
                     (255, 0, 0), 5)
         
-    cv2.imshow('Workout Detector', img)
-    if cv2.waitKey(10) & 0xFF == ord('q'):
+    cv2.imshow('Arm Raise', img)
+
+    if int(armCounter) != counter_display:
+        counter_display = int(armCounter)
+        st.write(counter_display)
+
+    if cv2.waitKey(10) & 0xFF == ord('q') or stop_button_pressed:
+        print(points)
         break
         
 cap.release()

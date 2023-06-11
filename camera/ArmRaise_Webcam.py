@@ -1,16 +1,23 @@
 import cv2
 import PoseModule as pm
+import streamlit as st
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 detector = pm.poseDetector()
 armCounter = 0
+counter_display = 0
 direction = 0
 form = 0
 points = 0
 feedback = "N/A"
 
-while cap.isOpened():
+frame_placeholder = st.empty()
+stop_button_pressed = st.button("Stop")
+
+while cap.isOpened() and not stop_button_pressed:
     ret, img = cap.read() #640 x 480
+    if img is None:
+        continue
 
     scale_percent = 180 # percent of original size
     width = int(img.shape[1] * scale_percent / 100)
@@ -18,7 +25,7 @@ while cap.isOpened():
     dim = (width, height)
 
     #Flips the image horizontally and rescales it
-    img = cv2.flip(img, -1)
+    img = cv2.flip(img, 1)
     img = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
 
     #Determine dimensions of video - Help with creation of box in Line 43
@@ -26,17 +33,21 @@ while cap.isOpened():
     height = cap.get(4)  # float `height`
     # print(width, height)
     
+    if not ret:
+        st.write("Video Capture has ended")
+        break
+
     img = detector.findPose(img, False)
     lmList = detector.findPosition(img, False)
     # print(lmList)
     if len(lmList) != 0:
-        left_elbow = detector.findAngle(img, 11, 13, 15)
-        left_shoulder = detector.findAngle(img, 13, 11, 23)
-        eft_hip = detector.findAngle(img, 11, 23,25)
+        right_elbow = detector.findAngle(img, 11, 13, 15)
+        right_shoulder = detector.findAngle(img, 13, 11, 23)
+        right_hip = detector.findAngle(img, 11, 23,25)
 
-        right_elbow = detector.findAngle(img, 12, 14, 16)
-        right_shoulder = detector.findAngle(img, 14, 12, 24)
-        right_hip = detector.findAngle(img, 12, 24, 26)
+        left_elbow = detector.findAngle(img, 12, 14, 16)
+        left_shoulder = detector.findAngle(img, 14, 12, 24)
+        left_hip = detector.findAngle(img, 12, 24, 26)
 
         #Check for starter position
         if right_shoulder < 30 and form != 1:
@@ -65,9 +76,11 @@ while cap.isOpened():
         
     cv2.imshow('Arm Raise', img)
 
-    print(points)
+    if int(armCounter) != counter_display:
+        counter_display = int(armCounter)
+        st.write(counter_display)
 
-    if cv2.waitKey(10) & 0xFF == ord('q'):
+    if cv2.waitKey(10) & 0xFF == ord('q') or stop_button_pressed:
         print(points)
         break
         

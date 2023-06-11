@@ -15,7 +15,7 @@ class Badge(models.Model):
 
 class Exercise(models.Model):
     name = models.CharField(max_length=30)
-    description = models.CharField(max_length=100)
+    description = models.CharField(max_length=500)
     ...  # todo extend
 
     def __str__(self):
