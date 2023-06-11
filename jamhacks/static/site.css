@@ -25,10 +25,11 @@
 }
 
 
+
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 10px;
-    padding-bottom: 50px;
+    padding-top: 0px;
+    padding-bottom: 100px;
     font-family: 'Simply Serif', serif;
     color: #523911 !important;
     /*background-image: url('https://media.discordapp.net/attachments/759867023885860934/1031193256433831997/unknown.png');*/
@@ -229,3 +230,50 @@ a:hover{
 .lb-highlight:hover{
     background-color: #ffb53fc0;
 }
+.header{
+    background-size: 1rem 1rem;
+    background-image: url('https://media.discordapp.net/attachments/759867023885860934/1117362376124137532/image.png');
+}
+
+.nav-item{
+    color:  #5E4221;
+    font-size: 1.5rem;
+
+}
+#main-header {
+    position: fixed;
+    bottom: 0;
+    background: var(--accent);
+  }
+  
+  .main-header {
+    width: calc(100vw - 2 * 1rem);
+    padding: 1rem;
+    color: #111;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+  }
+  
+  i {
+    padding: 0.2rem;
+    font-size: 3rem;
+    color: #000;
+  }
+
+  .title {
+    color: #677353;
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+  }
+
+  .subtitle{
+    color: #acbf8e;
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    align-items: center;
+  }

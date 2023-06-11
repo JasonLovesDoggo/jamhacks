@@ -4245,12 +4245,12 @@ html {
     margin-bottom: 20px;
     border: 1px solid transparent;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 0) {
     .navbar {
       border-radius: 4px;
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 0) {
     .navbar-header {
       float: left;
     }
@@ -4267,7 +4267,7 @@ html {
   .navbar-collapse.in {
     overflow-y: auto;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 0) {
     .navbar-collapse {
       width: auto;
       border-top: 0;
