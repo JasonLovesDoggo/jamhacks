@@ -20,9 +20,9 @@
       </div>
       {% endfor %}
   </div>
-/* align button */
-
-  <button onclick="location.href = '/start_session/{{quest.pk}}' " class="btn" style="text-align: center;">Start</button>
+  <div style='  display: flex; justify-content: center; align-items: center;'>
+      <button onclick="location.href = '/start_session/{{quest.pk}}' " class="btn">Start</button>
+  </div>  
 
 </div>
 {% endblock %}
