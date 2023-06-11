@@ -10,16 +10,33 @@
   <!-- user's badge -->
   {{user}}
 
-  {% for badge in user.badges.all %}
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-        <h5 class="card-title">{{badge.name}}</h5>
-        <p class="card-text">{{badge.description}}</p>
-        <img style="height:100px;width:100px;" src="../{{badge.icon}}" alt="{{badge.name}}">
-    </div>
-  {% endfor %}
+  <div class="row">
+    {% for badge in user.badges.all %}
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <b>{{badge.name}}</b>
+                </div>
+                <div class="card-text">{{badge.description}}</div>
 
-  
+                <img src="../{{badge.icon}}" class="card-img-top" alt="{{badge.name}}" />
+                <div class="card-text">
+                  Collected!
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if user.is_superuser %}
+  <p>current streak: {{user.current_streak}} days 🔥</p>
+  <img src="../../static/assets/calendar-streak.png" alt="" style="width: 500px;">
+  {% else %}
+  <p>current streak: {{user.current_streak}} days ❄️</p>
+  <img src="../../static/assets/calendar-no-streak.png" alt="" style="width: 500px;">
+  {% endif %}
 
   {% else %}
   <div>Cool site, but you are not logged in. </div>
