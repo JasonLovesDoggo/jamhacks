@@ -4,7 +4,7 @@
 ## How to run
 #### Website
 1. Install python
-2. clone the repo using `git clone` https://github.com/JasonLovesDoggo/jamhacks.git and `cd` into the directory 
+2. clone the repo using `git clone https://github.com/JasonLovesDoggo/jamhacks.git` and `cd` into the directory 
 3. run `pip install -r requirements.txt`
 4. run `cd jamhacks`
 5. run the following 
