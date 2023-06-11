@@ -1,15 +1,20 @@
 import cv2
 import PoseModule as pm
+import streamlit as st
 
 cap = cv2.VideoCapture(1)
 detector = pm.poseDetector()
 armCounter = 0
+counter_display = 0
 direction = 0
 form = 0
 points = 0
 feedback = "N/A"
 
-while cap.isOpened():
+frame_placeholder = st.empty()
+stop_button_pressed = st.button("Stop")
+
+while cap.isOpened() and not stop_button_pressed:
     ret, img = cap.read() #640 x 480
 
     scale_percent = 180 # percent of original size
@@ -26,6 +31,10 @@ while cap.isOpened():
     height = cap.get(4)  # float `height`
     # print(width, height)
     
+    if not ret:
+        st.write("Video Capture has ended")
+        break
+
     img = detector.findPose(img, False)
     lmList = detector.findPosition(img, False)
     # print(lmList)
@@ -65,9 +74,11 @@ while cap.isOpened():
         
     cv2.imshow('Arm Raise', img)
 
-    print(points)
+    if int(armCounter) != counter_display:
+        counter_display = int(armCounter)
+        st.write(counter_display)
 
-    if cv2.waitKey(10) & 0xFF == ord('q'):
+    if cv2.waitKey(10) & 0xFF == ord('q') or stop_button_pressed:
         print(points)
         break
         
