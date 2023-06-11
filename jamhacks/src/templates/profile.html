@@ -4,11 +4,11 @@
 {% block content %}
 <div>
   {% if user.is_authenticated %}
-  <h1>Welcome {{user.username}}!</h1>
-  <p>Thanks for logging in.</p>
-
-  <!-- user's badge -->
-  {{user}}
+  <div class="row" style="margin-bottom: 3%;">
+    <h1 style="margin-bottom: 0%;">{{ user.username }} </h1>
+    <p style="">{{ user.points }} points</p>
+    <br>
+</div>
 
   <div class="row">
     {% for badge in user.badges.all %}
@@ -31,13 +31,13 @@
   </div>
 
   {% if user.is_superuser %}
-  <p>current streak: {{user.current_streak}} days 🔥</p>
+  <br>
+  <p><b>current streak:</b> {{user.current_streak}} days 🔥</p>
   <img src="../../static/assets/calendar-streak.png" alt="" style="width: 500px;">
   {% else %}
-  <p>current streak: {{user.current_streak}} days ❄️</p>
-  <img src="../../static/assets/calendar-no-streaks.png" alt="" style="width: 500px;">
+  <p><b>current streak:</b> {{user.current_streak}} days ❄️</p>
+  <img src="../../static/assets/calendar-no-streak.png" alt="" style="width: 500px;">
   {% endif %}
-  <p><a href="{% url 'logout' %}">Logout</a></p>
   {% else %}
   <div>Cool site, but you are not logged in. </div>
   <p><a href="{% url 'login' %}">Login here</a></p>

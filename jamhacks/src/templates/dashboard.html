@@ -5,37 +5,40 @@
 <div>
   {% if user.is_authenticated %}
   <h1>Welcome {{user.username}}!</h1>
-  <p>Thanks for logging in.</p>
 
-  You have {{user.points}} points!
-  {{ 100|sub:user.points|mod:100 }} points until next badge!
-
+  You have <b>{{user.points}} points</b>!
+  <br>
+  <b>{{ 100|sub:user.points|mod:100 }} points</b> until next badge!
+<br>
   <div class="row gx-5">
   <!-- user's quests -->
   {% if user.quests.all %}
-    {% for quest in user.quests.all %}
-    <div class="col-md-4 col-sm-2 event-card card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col">
-                    <a href="#" class="card-title stretched-link" style="text-decoration: none; color:#523911"><h5>{{ quest.name }}</h5></a>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ event.organizer }}</h6>
-                    {% for exercise in quest.exercises.all %}
-                    <p class="card-text">{{exercise.name}}</p>
-                    {% endfor %}
-                    <a href="/start/{{quest.pk}}" class="stretched-link"></a>
-                    <br>
-                </div>
-                <div class="col points-blob text-center vertical-center-smol" style="max-width: 5rem;">
-                    <div class="">
-                    <p class="points-num align-middle" style=" margin-bottom: 0">30</p>
-                    <p class="">points</p>
-                    </div>
-                </div>
-            </div>
+  {% for quest in user.quests.all %}
+  <div class="col-md-4 col-sm-2 event-card card">
+      <div class="card-body">
+          <div class="row">
+              <div class="col">
+                  <a href="#" class="card-title stretched-link" style="text-decoration: none; color:#523911">
+                      <h5><b>{{ quest.name }}</b></h5>
+                  </a>
+                  {% for exercise in quest.exercises.all %}
+                  <p class="card-text" style="margin-bottom: 0.3rem;">{{exercise.name}}</p>
+                  {% endfor %}
+                  <a href="/start/{{quest.pk}}" class="stretched-link"></a>
+                  <br>
+              </div>
+              <div class="col points-blob text-center vertical-center-smol" style="max-width: 5rem;">
+                  <div class="">
+                      <p class="points-num align-middle" style=" margin-bottom: 0">30</p>
+                      <p class="">points</p>
+                  </div>
+              </div>
           </div>
-        </div>
-      {% endfor %}
+
+      </div>
+  </div>
+
+  {% endfor %}
   {% else %}
     <!-- all quests is user doesn't have quests -->
     {% for quest in quests %}
@@ -69,8 +72,7 @@
 
 
   {% else %}
-  <div>Cool site, but you are not logged in. </div>
-  <p><a href="{% url 'login' %}">Login here</a></p>
+  <p style="text-align: center" ;><a href="{% url 'login' %}">login here</a></p>
   {% endif %}
 </div>
 {% endblock %}
